@@ -1,3 +1,5 @@
-console.log('app start');
+//main
 require('./less');
+
+//app
 require('./Canvas/CanvasMain');
