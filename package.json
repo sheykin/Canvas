@@ -1,0 +1,33 @@
+{
+  "name": "canvas",
+  "version": "1.0.0",
+  "description": "canvas game",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sheykin/Canvas.git"
+  },
+  "keywords": [
+    "canvas",
+    "game"
+  ],
+  "author": "Evgeny A Sheykin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sheykin/Canvas/issues"
+  },
+  "homepage": "https://github.com/sheykin/Canvas#readme",
+  "devDependencies": {
+    "css-loader": "^0.28.4",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.3"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
