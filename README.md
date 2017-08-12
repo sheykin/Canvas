@@ -1,2 +1,2 @@
-# Canvas
-Canvas game
+# GBR map
+GBR map
