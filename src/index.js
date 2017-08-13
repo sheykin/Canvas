@@ -1,8 +1,8 @@
 //main
 require('jquery');
-require('./less');
 require('bootstrap');
 require('../node_modules/bootstrap/dist/css/bootstrap.css');
+require('./less');
 
 //app
-require('./Canvas/CanvasMain');
+require('../src/CanvasMain');
