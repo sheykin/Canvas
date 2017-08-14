@@ -2,7 +2,8 @@ import * as Canvas from '../src/Canvas/Canvas';
 
 window.onload = () => {
     const canvas = new Canvas.Context('canvas');
-    const layers = new Canvas.Layers(canvas);
+    const layers = new Canvas.Layers();
+    const animation = new Canvas.Animation();
 
     const imgSrc = [];
     for(let i = 8; i > 0; i --) {
@@ -10,7 +11,15 @@ window.onload = () => {
         imgSrc.push(src);
     }
 
-    layers.loadImages(imgSrc, ()=>{
-        layers.parallax();
+    layers.loadImages(imgSrc, (data)=>{
+        animation.layerParallax(canvas, layers);
     });
+
+
+    // const animate = () => {
+    //     requestAnimationFrame( animate );
+    //
+    // };
+    //
+    // animate();
 };

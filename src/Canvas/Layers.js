@@ -1,22 +1,6 @@
-var layers;
 
 class Layers {
-    constructor(canvas) {
-        this.canvas = canvas;
-
-        window.requestAnimFrame = function(){
-            return (
-                window.requestAnimationFrame       ||
-                window.webkitRequestAnimationFrame ||
-                window.mozRequestAnimationFrame    ||
-                window.oRequestAnimationFrame      ||
-                window.msRequestAnimationFrame     ||
-                function(callback){
-                    window.setTimeout(callback, 1000 / 60);
-                }
-            );
-        }();
-
+    constructor() {
     }
 
     loadImages(arrSrc, callback){
@@ -25,7 +9,7 @@ class Layers {
 
         let _loaded = 0;
         let _arrLength = arrSrc.length;
-        for(let i = 0; i < _arrLength; i ++) {
+        for(let i = 0; i < _arrLength; ++i) {
             const img = new Image();
             img.src = arrSrc[i];
             img.onload = () => {
@@ -38,7 +22,8 @@ class Layers {
         }
     }
 
-    draw (x, y) {
+    draw (canvas, x, y) {
+        this.canvas = canvas;
         let _x = x || 0;
         let _y = y || 0;
         for (let i = 0; i < this.imgArr.length; i++){
@@ -48,21 +33,6 @@ class Layers {
             this.canvas.ctx.drawImage(this.imgArr[i], _x, _y, imgWidth*aspectRatio, imgHeight*aspectRatio);
         }
     }
-
-    parallax() {
-        layers = this;
-        animation();
-    }
-
-}
-
-let _startX = 0;
-let _startY = 0;
-
-function animation () {
-    layers.draw(_startX++, _startY++);
-
-    window.requestAnimFrame(animation);
 }
 
 
