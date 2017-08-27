@@ -43,21 +43,25 @@ class Layers {
 
         const that = this;
 
+        this.leftShift= (this.arrLayers.length * this.arrLayers.length);
+
         if (direc === 'left') {
-            this.x = this.x - 1*k;
+            this.x = (this.x - 1*k);
             if (this.x < (0 - this.arrLayers.length) ) this.x = (0 - this.arrLayers.length);
             direction(this.x, this.y);
         } else if (direc === 'right') {
             if (this.x > this.arrLayers.length ) this.x = this.arrLayers.length;
-            this.x = this.x + 1*k;
+            this.x = (this.x + 1*k);
             direction(this.x, this.y);
         } else if (direc === 'up') {
-            this.y = this.y + 1*k;
+            this.y = (this.y + 1*k);
             if (this.y > this.arrLayers.length ) this.y = this.arrLayers.length;
             direction(this.x, this.y);
         } else if (direc === 'down') {
-            if (this.y < (0 - this.arrLayers.length) ) this.y = (0 - this.arrLayers.length);
-            this.y = this.y - 1*k;
+            if (this.y < 0 ) this.y = 0 ;
+            this.y = (this.y - 1*k);
+            direction(this.x, this.y);
+        } else {
             direction(this.x, this.y);
         }
 
@@ -66,7 +70,7 @@ class Layers {
                 const imgWidth = that.arrLayers[i].width;
                 const imgHeight = that.arrLayers[i].height;
                 const aspectRatio = that.canvas.canvas.height / imgHeight;
-                that.canvas.ctx.drawImage(that.arrLayers[i], x*i, y*i, imgWidth * aspectRatio, imgHeight * aspectRatio);
+                that.canvas.ctx.drawImage(that.arrLayers[i], x*i - that.leftShift, y*i, imgWidth * aspectRatio, imgHeight * aspectRatio);
             }
         }
     }
